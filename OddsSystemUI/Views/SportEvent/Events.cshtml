@@ -1,0 +1,61 @@
+﻿@model  IEnumerable<EventViewModel>
+@{
+    ViewData["Title"] = "Events";
+    bool isEvenRow = true;
+}
+
+<link rel="stylesheet" href="~/css/Events.css"/>
+
+<h2>Events</h2>
+<div class="container-fluid">
+    <div class="row event-heading border text-center">
+        <div class="col-xs-4 border border-dark">
+            EventName
+        </div>
+        <div class="col-xs-2 border">
+            <h4 class="text-center">OddsForFirstTeam</h4>
+        </div>
+        <div class="col-xs-2 border text-center">
+            <h4>OddsForDraw</h4>
+        </div>
+        <div class="col-xs-2 border">
+            <h4>OddsForSecondTeam</h4>
+        </div>
+        <div class="col-xs-2 border">
+            <h4>EventStartDate</h4>
+        </div>
+    </div>
+    @foreach(var sportEvent in Model)
+    {
+        string colorClass;
+        if (sportEvent.EventStartDate<DateTime.Now)
+        {
+            colorClass = "event-row-color-old";
+        }
+        else
+        {
+            colorClass = isEvenRow ? "event-row-color-even" : "event-row-color-odd";
+        }
+        isEvenRow = !isEvenRow;
+
+        <div class="row @colorClass text-center border">
+            <div class="col-xs-4 border @colorClass">
+                @sportEvent.EventName
+            </div>
+            <div class="col-xs-2 border">
+                @sportEvent.OddsForFirstTeam
+            </div>
+            <div class="col-xs-2 border">
+                @sportEvent.OddsForDraw
+            </div>
+            <div class="col-xs-2 border">
+                @sportEvent.OddsForSecondTeam
+            </div>
+            <div class="col-xs-2 border">
+                @sportEvent.EventStartDate
+            </div>
+        </div>
+    }
+
+</div>
+
