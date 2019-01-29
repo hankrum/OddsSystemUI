@@ -1,8 +1,9 @@
-﻿using System;
+﻿using OddsSystemUI.Data.Contracts;
+using System;
 
 namespace OddsSystemUI.Data.Models
 {
-    public class SportEvent
+    public class SportEvent : IId
     {
         public long Id { get; set; }
 

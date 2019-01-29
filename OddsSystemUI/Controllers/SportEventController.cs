@@ -23,7 +23,7 @@ namespace OddsSystemUI.Controllers
             return RedirectToAction("Events");
         }
 
-        public async Task<IActionResult> Events()
+        public async Task<IActionResult> ViewAll()
         {
             IEnumerable<SportEvent> events = await this.eventsService.All();
 
@@ -32,12 +32,23 @@ namespace OddsSystemUI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditEvents()
+        public async Task<IActionResult> EditAll()
         {
             IEnumerable<SportEvent> events = await this.eventsService.All();
             IEnumerable<EventViewModel> models = events.Select<SportEvent, EventViewModel>(x => new EventViewModel(x));
 
             return View(models);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EventViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                await this.eventsService.
+            }
+
+            return RedirectToAction("EditAll");
         }
     }
 }
