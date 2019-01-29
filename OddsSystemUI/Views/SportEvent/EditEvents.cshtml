@@ -1,0 +1,73 @@
+﻿@model  IEnumerable<EventViewModel>
+@{
+    ViewData["Title"] = "Edit Events";
+}
+
+<h2>Edit Events</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-10"></div>
+        <div class="col-xs-2">
+            @using (Html.BeginForm("Events", "SportEvent", FormMethod.Get))
+            {
+            <button type="submit">Preview Mode</button>
+            }
+        </div>
+    </div>
+    <div class="row"></div>
+    <div class="row event-heading border text-center">
+        <div class="col-xs-1 border border-dark">
+            EventId
+        </div>
+        <div class="col-xs-2 border border-dark">
+            EventName
+        </div>
+        <div class="col-xs-2 border">
+            OddsForFirstTeam
+        </div>
+        <div class="col-xs-1 border text-center">
+            OddsForDraw
+        </div>
+        <div class="col-xs-2 border">
+            OddsForSecondTeam
+        </div>
+        <div class="col-xs-2 border">
+            EventStartDate
+        </div>
+    </div>
+    @foreach(var sportEvent in Model)
+    {
+    <div class="row text-center border">
+        @using (Html.BeginForm("Event", "SportEvent", FormMethod.Post))
+        {
+        <div class="col-xs-1 border">
+            <input type="text" value="@sportEvent.Id" readonly />
+        </div>
+        <div class="col-xs-2 border">
+            <input type="text" value="@sportEvent.EventName" />
+        </div>
+        <div class="col-xs-2 border">
+            <input type="text" value="@sportEvent.OddsForFirstTeam" />
+        </div>
+        <div class="col-xs-1 border">
+            <input type="text" value="@sportEvent.OddsForDraw" />
+        </div>
+        <div class="col-xs-2 border">
+            <input type="text" value="@sportEvent.OddsForSecondTeam" />
+        </div>
+        <div class="col-xs-2 border">
+            <input type="datetime" value="@sportEvent.EventStartDate" />
+        </div>
+        <div class="col-xs-1">
+            <button type="submit">Save</button>
+        </div>
+        <div class="col-xs-1">
+            <button type="button">Delete</button>
+        </div>
+        }
+    </div>
+
+    }
+
+</div>
+

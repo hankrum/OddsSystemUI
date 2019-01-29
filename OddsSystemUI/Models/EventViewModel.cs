@@ -6,6 +6,8 @@ namespace OddsSystemUI.Models
 {
     public class EventViewModel
     {
+        public long Id { get; set; }
+
         [Required]
         public string EventName { get; set; }
 
@@ -23,6 +25,7 @@ namespace OddsSystemUI.Models
 
         public EventViewModel(SportEvent sportEvent)
         {
+            this.Id = sportEvent.Id;
             this.EventName = sportEvent.EventName;
             this.OddsForFirstTeam = sportEvent.OddsForFirstTeam;
             this.OddsForDraw = sportEvent.OddsForDraw;

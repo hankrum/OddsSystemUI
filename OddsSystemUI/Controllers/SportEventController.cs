@@ -30,5 +30,14 @@ namespace OddsSystemUI.Controllers
             IEnumerable<EventViewModel> models = events.Select<SportEvent, EventViewModel>(x => new EventViewModel(x));
             return View(models);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> EditEvents()
+        {
+            IEnumerable<SportEvent> events = await this.eventsService.All();
+            IEnumerable<EventViewModel> models = events.Select<SportEvent, EventViewModel>(x => new EventViewModel(x));
+
+            return View(models);
+        }
     }
 }
