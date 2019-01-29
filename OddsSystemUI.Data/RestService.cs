@@ -1,16 +1,14 @@
 ﻿using OddsSystemUI.Data.Contracts;
-using OddsSystemUI.Data.Models;
 using System.Collections.Generic;
 using System.Net.Http;
 using Newtonsoft.Json;
-using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 using System;
 using System.Net;
 
 namespace OddsSystemUI.Data
 {
-    public class RestService<T> where T : IId   //: IRestService
+    public class RestService<T> where T : IId   //: IRestService    TODO
     {
         private HttpClient client = new HttpClient();
 
@@ -23,7 +21,7 @@ namespace OddsSystemUI.Data
 
         public async Task<IEnumerable<T>> GetAll() 
         {
-            string url = "http://localhost:55545/api/SportEvent";
+            string url = "http://localhost:55545/api/SportEvent"; //TODO fix the url
             IEnumerable<T> events = null;
             var response = await client.GetStringAsync(url);
             events = JsonConvert.DeserializeObject<IEnumerable<T>>(response);  //TODO inject the Json

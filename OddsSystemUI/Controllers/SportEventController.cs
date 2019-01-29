@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using OddsSystemUI.Data.Contracts;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +19,7 @@ namespace OddsSystemUI.Controllers
 
         public IActionResult Index()
         {
-            return RedirectToAction("Events");
+            return RedirectToAction("ViewAll");
         }
 
         public async Task<IActionResult> ViewAll()
@@ -45,7 +44,7 @@ namespace OddsSystemUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                await this.eventsService.
+                //await this.eventsService. TODO
             }
 
             return RedirectToAction("EditAll");
