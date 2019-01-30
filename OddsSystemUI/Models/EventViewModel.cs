@@ -25,7 +25,7 @@ namespace OddsSystemUI.Models
 
         public EventViewModel()
         {
-
+            this.EventStartDate = DateTime.Now;
         }
 
         public EventViewModel(SportEvent sportEvent)

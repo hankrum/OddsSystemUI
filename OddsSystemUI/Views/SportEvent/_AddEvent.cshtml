@@ -1,0 +1,35 @@
+﻿@model EventViewModel
+@{
+    ViewData["Title"] = "_EditEvent";
+}
+<style>
+    .invisible {
+        visibility: hidden;
+    }
+</style>
+
+<div class="col-xs-1 border">
+    @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "invisible" })
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.EventName, new { @class = "invisible" })
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "invisible" })
+</div>
+<div class="col-xs-1 border">
+    @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "invisible" })
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "invisible" })
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.EventStartDate, new { @class = "invisible" })
+</div>
+<div class="col-xs-1">
+    <button type="submit" class="invisible" formaction="@Url.Action("Edit")">Save</button>
+</div>
+@*<div class="col-xs-1">
+    <button type="submit" class="invisible" formaction="@Url.Action("Delete")">Delete</button>
+</div>*@
+

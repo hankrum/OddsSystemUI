@@ -10,7 +10,7 @@
         <div class="col-xs-2">
             @using (Html.BeginForm("ViewAll", "SportEvent", FormMethod.Get))
             {
-            <button type="submit">Preview Mode</button>
+                <button type="submit">Preview Mode</button>
             }
         </div>
     </div>
@@ -35,16 +35,32 @@
             EventStartDate
         </div>
     </div>
-    @foreach(var sportEvent in Model)
+    @foreach (var sportEvent in Model)
     {
-    <div class="row text-center border">
-        @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
-        {
-            @Html.Partial("_EditEvent", sportEvent)
-        }
+        <div class="row text-center border">
+            @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
+            {
+                @Html.Partial("_EditEvent", sportEvent)
+            }
+        </div>
+    }
+    @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
+    {
+        @Html.Partial("_AddEvent", new EventViewModel())
+    }
+    <br/>
+    <div class="row">
+        <div>
+            <button type="button" onclick="makeVisible()">Add New</button>
+        </div>
     </div>
 
-    }
 
 </div>
+
+<script>
+    function makeVisible() {
+        $(".invisible").css("visibility", "visible");
+    }
+</script>
 

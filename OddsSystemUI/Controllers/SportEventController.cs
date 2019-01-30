@@ -54,7 +54,7 @@ namespace OddsSystemUI.Controllers
                 }
             }
 
-            return RedirectToAction("EditAll");
+            return RedirectToAction("EditAll", "SportEvent");
         }
 
         [HttpPost]
@@ -62,7 +62,7 @@ namespace OddsSystemUI.Controllers
         {
             this.eventsService.Delete(model.ToDataModel());
 
-            return RedirectToAction("EditAll");
+            return RedirectToAction("EditAll", "SportEvent");
         }
     }
 }

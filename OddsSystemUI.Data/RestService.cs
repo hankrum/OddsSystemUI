@@ -32,6 +32,7 @@ namespace OddsSystemUI.Data
             string url = "http://localhost:55545/api/SportEvent";
             string json = JsonConvert.SerializeObject(model);
             var httpContent = new StringContent(json);
+            httpContent.Headers.ContentType.MediaType = "application/json";
             HttpResponseMessage response = await client.PostAsync(url,  httpContent);
 
             response.EnsureSuccessStatusCode();
