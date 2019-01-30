@@ -22,10 +22,10 @@
     @Html.TextBoxFor(x => x.EventStartDate)
 </div>
 <div class="col-xs-1">
-    <button type="submit">Save</button>
+    <button type="submit" formaction="@Url.Action("Edit")">Save</button>
 </div>
 <div class="col-xs-1">
-    <button type="button">Delete</button>
+    <button type="button" formaction="@Url.Action("Delete")">Delete</button>
 </div>
 
 

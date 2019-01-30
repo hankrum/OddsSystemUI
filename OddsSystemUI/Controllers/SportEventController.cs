@@ -44,6 +44,10 @@ namespace OddsSystemUI.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (model.Id != null && model.Id > 0)
+                {
+                    await this.eventsService
+                }
                 //await this.eventsService. TODO
             }
 

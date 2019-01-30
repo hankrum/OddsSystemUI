@@ -41,7 +41,7 @@ namespace OddsSystemUI.Data
             return response.Headers.Location;
         }
 
-        public async Task<T> UpdateSportEvent(T model) 
+        public async Task<T> Update(T model) 
         {
             string url = "http://localhost:55545/api/SportEvent";
             string json = JsonConvert.SerializeObject(model);
@@ -57,7 +57,7 @@ namespace OddsSystemUI.Data
             return model;
         }
 
-        public async Task<HttpStatusCode> DeleteProductAsync(long id)
+        public async Task<HttpStatusCode> Delete(long id)
         {
             HttpResponseMessage response = await client.DeleteAsync(
                 $"api/SportEvent/{id}");

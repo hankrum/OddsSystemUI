@@ -22,5 +22,10 @@ namespace OddsSystemUI.Data
         {
            await this.restService.Create(sportEvent);   //TODO
         }
+
+        public async void Edit(SportEvent sportEvent)
+        {
+            await this.restService.Update(sportEvent);
+        }
     }
 }

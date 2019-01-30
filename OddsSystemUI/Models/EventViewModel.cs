@@ -6,7 +6,7 @@ namespace OddsSystemUI.Models
 {
     public class EventViewModel
     {
-        public long Id { get; set; }
+        public long? Id { get; set; }
 
         [Required]
         public string EventName { get; set; }
