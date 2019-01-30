@@ -40,7 +40,7 @@ namespace OddsSystemUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(EventViewModel model)
+        public async Task<IActionResult> Edit(EventViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -58,9 +58,10 @@ namespace OddsSystemUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult Delete(EventViewModel model)
+        public async Task<IActionResult> Delete(EventViewModel model)
         {
-            //this.eventsService.
+            this.eventsService.Delete(model.ToDataModel());
+
             return RedirectToAction("EditAll");
         }
     }

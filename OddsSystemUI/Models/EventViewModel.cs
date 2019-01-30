@@ -23,6 +23,11 @@ namespace OddsSystemUI.Models
         [DataType(DataType.DateTime)]
         public DateTime EventStartDate { get; set; }
 
+        public EventViewModel()
+        {
+
+        }
+
         public EventViewModel(SportEvent sportEvent)
         {
             this.Id = sportEvent.Id;

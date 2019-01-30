@@ -42,12 +42,13 @@ namespace OddsSystemUI.Data
 
         public async Task<T> Update(T model) 
         {
-            string url = "http://localhost:55545/api/SportEvent";
+            string url = "http://localhost:55545/api/SportEvent/";
             string json = JsonConvert.SerializeObject(model);
             var httpContent = new StringContent(json);
+            httpContent.Headers.ContentType.MediaType = "application/json";
 
             HttpResponseMessage response = await client.PutAsync(
-                $"api/SportEvent/{model.Id}", httpContent);
+                url + model.Id, httpContent);
             response.EnsureSuccessStatusCode();
 
             // Deserialize the updated product from the response body.
@@ -58,8 +59,8 @@ namespace OddsSystemUI.Data
 
         public async Task<HttpStatusCode> Delete(long id)
         {
-            HttpResponseMessage response = await client.DeleteAsync(
-                $"api/SportEvent/{id}");
+            string url = "http://localhost:55545/api/SportEvent/";
+            HttpResponseMessage response = await client.DeleteAsync(url + id);
             return response.StatusCode;
         }
 
