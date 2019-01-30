@@ -3,56 +3,68 @@
     ViewData["Title"] = "Edit Events";
 }
 
+<style>
+    .invisible, .nevervisible {
+        visibility: hidden;
+    }
+</style>
+
 <h2>Edit Events</h2>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-10"></div>
-        <div class="col-xs-2">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
             @using (Html.BeginForm("ViewAll", "SportEvent", FormMethod.Get))
             {
                 <button type="submit">Preview Mode</button>
             }
         </div>
     </div>
-    <div class="row"></div>
-    <div class="row event-heading border text-center">
-        <div class="col-xs-1 border border-dark">
+    <div class="row m-0 p-0"></div>
+    <div class="row event-heading border text-center m-0 p-0">
+        <div class="col-lg-1 border border-dark">
             EventId
         </div>
-        <div class="col-xs-2 border border-dark">
+        <div class="col-lg-2 border border-dark">
             EventName
         </div>
-        <div class="col-xs-2 border">
+        <div class="col-lg-2 border">
             OddsForFirstTeam
         </div>
-        <div class="col-xs-1 border text-center">
+        <div class="col-lg-1 border text-center">
             OddsForDraw
         </div>
-        <div class="col-xs-2 border">
+        <div class="col-lg-2 border">
             OddsForSecondTeam
         </div>
-        <div class="col-xs-2 border">
+        <div class="col-lg-2 border">
             EventStartDate
         </div>
     </div>
     @foreach (var sportEvent in Model)
     {
-        <div class="row text-center border">
+        <div class="row text-center border m-0 p-0">
             @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
             {
                 @Html.Partial("_EditEvent", sportEvent)
             }
         </div>
     }
-    @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
-    {
-        @Html.Partial("_AddEvent", new EventViewModel())
-    }
-    <br/>
-    <div class="row">
-        <div>
+
+    <div class="row text-center m-0 p-0">
+        @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
+        {
+            @Html.Partial("_AddEvent", new EventViewModel())
+        }
+    </div>
+    <div class="row nevervisible">
+        SPACE
+    </div>
+    <div class="row m-0 p-0">
+        <div class="col-lg-2">
             <button type="button" onclick="makeVisible()">Add New</button>
         </div>
+        <div class="col-lg-10 m-0 p-0"></div>
     </div>
 
 

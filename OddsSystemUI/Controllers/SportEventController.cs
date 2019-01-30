@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using OddsSystemUI.Models;
 using OddsSystemUI.Data.Models;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace OddsSystemUI.Controllers
 {
@@ -52,6 +53,10 @@ namespace OddsSystemUI.Controllers
                 {
                     this.eventsService.Add(model.ToDataModel());
                 }
+            }
+            else
+            {
+                RedirectToAction("EditAll");
             }
 
             return RedirectToAction("EditAll", "SportEvent");
