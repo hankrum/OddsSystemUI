@@ -18,14 +18,19 @@ namespace OddsSystemUI.Data
             return models;
         }
 
-        public async void Add(SportEvent sportEvent)
+        public async void  Add(SportEvent sportEvent)
         {
-           await this.restService.Create(sportEvent);   //TODO
+            await this.restService.Create(sportEvent);   
         }
 
         public async void Edit(SportEvent sportEvent)
         {
             await this.restService.Update(sportEvent);
+        }
+
+        public async void Delete(SportEvent sportEvent)
+        {
+            await this.restService.Delete(sportEvent.Id);
         }
     }
 }

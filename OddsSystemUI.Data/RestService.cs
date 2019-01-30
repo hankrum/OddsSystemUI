@@ -18,7 +18,6 @@ namespace OddsSystemUI.Data
         //    this.url = url;
         //}
 
-
         public async Task<IEnumerable<T>> GetAll() 
         {
             string url = "http://localhost:55545/api/SportEvent"; //TODO fix the url

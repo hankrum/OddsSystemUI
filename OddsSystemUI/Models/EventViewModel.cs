@@ -32,5 +32,18 @@ namespace OddsSystemUI.Models
             this.OddsForSecondTeam = sportEvent.OddsForSecondTeam;
             this.EventStartDate = sportEvent.EventStartDate;
         }
+
+        public SportEvent ToDataModel()
+        {
+            var result = new SportEvent();
+            result.Id = this.Id ?? 0;
+            result.EventName = this.EventName;
+            result.OddsForFirstTeam = this.OddsForFirstTeam;
+            result.OddsForDraw = this.OddsForDraw;
+            result.OddsForSecondTeam = this.OddsForSecondTeam;
+            result.EventStartDate = this.EventStartDate;
+
+            return result;
+        }
     }
 }

@@ -40,17 +40,27 @@ namespace OddsSystemUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EventViewModel model)
+        public IActionResult Edit(EventViewModel model)
         {
             if (ModelState.IsValid)
             {
                 if (model.Id != null && model.Id > 0)
                 {
-                    await this.eventsService
+                    this.eventsService.Edit(model.ToDataModel());
                 }
-                //await this.eventsService. TODO
+                else
+                {
+                    this.eventsService.Add(model.ToDataModel());
+                }
             }
 
+            return RedirectToAction("EditAll");
+        }
+
+        [HttpPost]
+        public IActionResult Delete(EventViewModel model)
+        {
+            //this.eventsService.
             return RedirectToAction("EditAll");
         }
     }
