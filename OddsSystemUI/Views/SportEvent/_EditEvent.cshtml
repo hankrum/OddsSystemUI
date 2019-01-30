@@ -1,0 +1,31 @@
+﻿@model EventViewModel
+@{
+    ViewData["Title"] = "_EditEvent";
+}
+
+<div class="col-xs-1 border">
+    @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly" })
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.EventName)
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.OddsForFirstTeam)
+</div>
+<div class="col-xs-1 border">
+    @Html.TextBoxFor(x => x.OddsForDraw)
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.OddsForSecondTeam)
+</div>
+<div class="col-xs-2 border">
+    @Html.TextBoxFor(x => x.EventStartDate)
+</div>
+<div class="col-xs-1">
+    <button type="submit">Save</button>
+</div>
+<div class="col-xs-1">
+    <button type="button">Delete</button>
+</div>
+
+

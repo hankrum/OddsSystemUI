@@ -40,30 +40,7 @@
     <div class="row text-center border">
         @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
         {
-        <div class="col-xs-1 border">
-            <input type="text" value="@sportEvent.Id" readonly />
-        </div>
-        <div class="col-xs-2 border">
-            <input type="text" value="@sportEvent.EventName" />
-        </div>
-        <div class="col-xs-2 border">
-            <input type="text" value="@sportEvent.OddsForFirstTeam" />
-        </div>
-        <div class="col-xs-1 border">
-            <input type="text" value="@sportEvent.OddsForDraw" />
-        </div>
-        <div class="col-xs-2 border">
-            <input type="text" value="@sportEvent.OddsForSecondTeam" />
-        </div>
-        <div class="col-xs-2 border">
-            <input type="datetime" value="@sportEvent.EventStartDate" />
-        </div>
-        <div class="col-xs-1">
-            <button type="submit">Save</button>
-        </div>
-        <div class="col-xs-1">
-            <button type="button">Delete</button>
-        </div>
+            @Html.Partial("_EditEvent", sportEvent)
         }
     </div>
 

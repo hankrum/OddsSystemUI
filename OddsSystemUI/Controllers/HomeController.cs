@@ -12,7 +12,7 @@ namespace OddsSystemUI.Controllers
     {
         public IActionResult Index()
         {
-            return RedirectToAction("Events", "SportEvent");
+            return RedirectToAction("ViewAll", "SportEvent");
         }
 
         public IActionResult Error()
