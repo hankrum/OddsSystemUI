@@ -41,7 +41,7 @@ namespace OddsSystemUI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(EventViewModel model)
+        public async Task<IActionResult> EditAll(EventViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -53,13 +53,13 @@ namespace OddsSystemUI.Controllers
                 {
                     this.eventsService.Add(model.ToDataModel());
                 }
+                return RedirectToAction("EditAll", "SportEvent");
             }
             else
             {
-                RedirectToAction("EditAll");
+                return Redirect("EditAll");
             }
 
-            return RedirectToAction("EditAll", "SportEvent");
         }
 
         [HttpPost]

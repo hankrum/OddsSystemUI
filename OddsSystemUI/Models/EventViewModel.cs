@@ -8,19 +8,19 @@ namespace OddsSystemUI.Models
     {
         public long? Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Cannot be empty")]
         public string EventName { get; set; }
 
-        [Range(1.0, double.MaxValue)]
+        [Range(1.0, double.MaxValue, ErrorMessage = "Must be bigger than 1")]
         public double OddsForFirstTeam { get; set; }
 
-        [Range(1.0, double.MaxValue)]
+        [Range(1.0, double.MaxValue, ErrorMessage = "Must be bigger than 1")]
         public double OddsForDraw { get; set; }
 
-        [Range(1.0, double.MaxValue)]
+        [Range(1.0, double.MaxValue, ErrorMessage = "Must be bigger than 1")]
         public double OddsForSecondTeam { get; set; }
 
-        [DataType(DataType.DateTime)]
+        [DataType(DataType.DateTime, ErrorMessage = "Must be a valid date")]
         public DateTime EventStartDate { get; set; }
 
         public EventViewModel()

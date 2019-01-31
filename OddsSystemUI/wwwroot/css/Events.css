@@ -10,3 +10,6 @@
 .event-row-color-old {
     background-color: lightsalmon;
 }
+.invisible, .nevervisible {
+    visibility: hidden;
+}

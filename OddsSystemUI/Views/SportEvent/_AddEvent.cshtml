@@ -2,29 +2,34 @@
 @{
     ViewData["Title"] = "_EditEvent";
 }
+<div class="row text-center">
+    @using (Html.BeginForm("EditAll", "SportEvent", FormMethod.Post))
+    {
 
-<div class="col-lg-1 border">
-    @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "invisible form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.EventName, new { @class = "invisible form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "invisible form-control" })
-</div>
-<div class="col-lg-1 border">
-    @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "invisible form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "invisible form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.EventStartDate, new { @class = "invisible form-control" })
-</div>
-<div class="col-lg-1">
-    <button type="submit" class="invisible" formaction="@Url.Action("Edit")">Save</button>
-</div>
-<div class="col-lg-1">
-    @*<button type="submit" class="invisible" formaction="@Url.Action("Delete")">Delete</button>*@
+    <div class="col-lg-1 border">
+        @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-2 border">
+        @Html.TextBoxFor(x => x.EventName, new { @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-2 border">
+        @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-1 border">
+        @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-2 border">
+        @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-2 border">
+        @Html.TextBoxFor(x => x.EventStartDate, new { @class = "invisible form-control" })
+    </div>
+    <div class="col-lg-1">
+        <button type="submit" class="invisible" formaction="@Url.Action("Edit")">Save</button>
+    </div>
+    <div class="col-lg-1">
+        @*<button type="submit" class="invisible" formaction="@Url.Action("Delete")">Delete</button>*@
+    </div>
+    }
 </div>
 

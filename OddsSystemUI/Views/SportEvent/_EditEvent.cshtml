@@ -2,30 +2,37 @@
 @{
     ViewData["Title"] = "_EditEvent";
 }
-
-<div class="col-lg-1 border">
-    @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "form-control" })
+<div class="row text-center">
+    @using (Html.BeginForm("EditAll", "SportEvent", FormMethod.Post))
+    {
+        <div class="col-lg-1">
+            @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "form-control" })
+        </div>
+        <div class="col-lg-2">
+            @Html.TextBoxFor(x => x.EventName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.EventName)
+        </div>
+        <div class="col-lg-2">
+            @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.OddsForFirstTeam)
+        </div>
+        <div class="col-lg-1">
+            @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.OddsForDraw)
+        </div>
+        <div class="col-lg-2">
+            @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.OddsForSecondTeam)
+        </div>
+        <div class="col-lg-2">
+            @Html.TextBoxFor(x => x.EventStartDate, new { @class = "form-control" })
+            @Html.ValidationMessageFor(x => x.EventStartDate)
+        </div>
+        <div class="col-lg-1">
+            <button type="submit" formaction="@Url.Action("EditAll")">Save</button>
+        </div>
+        <div class="col-lg-1">
+            <button type="submit" formaction="@Url.Action("Delete")">Delete</button>
+        </div>
+    }
 </div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.EventName, new { @class = "form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "form-control" })
-</div>
-<div class="col-lg-1 border">
-    @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "form-control" })
-</div>
-<div class="col-lg-2 border">
-    @Html.TextBoxFor(x => x.EventStartDate, new { @class = "form-control" })
-</div>
-<div class="col-lg-1">
-    <button type="submit" formaction="@Url.Action("Edit")">Save</button>
-</div>
-<div class="col-lg-1">
-    <button type="submit" formaction="@Url.Action("Delete")">Delete</button>
-</div>
-
-

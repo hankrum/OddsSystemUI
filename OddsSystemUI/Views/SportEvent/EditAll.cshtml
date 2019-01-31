@@ -1,15 +1,10 @@
-﻿@model  IEnumerable<EventViewModel>
+﻿@model IEnumerable<EventViewModel>
 @{
     ViewData["Title"] = "Edit Events";
 }
 
-<style>
-    .invisible, .nevervisible {
-        visibility: hidden;
-    }
-</style>
-
 <h2>Edit Events</h2>
+@Html.ValidationSummary()
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-10"></div>
@@ -20,51 +15,44 @@
             }
         </div>
     </div>
-    <div class="row m-0 p-0"></div>
-    <div class="row event-heading border text-center m-0 p-0">
-        <div class="col-lg-1 border border-dark">
+    <div class="row"></div>
+    <div class="row event-heading text-center">
+        <div class="col-lg-1">
             EventId
         </div>
-        <div class="col-lg-2 border border-dark">
+        <div class="col-lg-2">
             EventName
         </div>
-        <div class="col-lg-2 border">
+        <div class="col-lg-2">
             OddsForFirstTeam
         </div>
-        <div class="col-lg-1 border text-center">
+        <div class="col-lg-1 text-center">
             OddsForDraw
         </div>
-        <div class="col-lg-2 border">
+        <div class="col-lg-2">
             OddsForSecondTeam
         </div>
-        <div class="col-lg-2 border">
+        <div class="col-lg-2">
             EventStartDate
         </div>
+        <div class="col-lg-2">.</div>
     </div>
     @foreach (var sportEvent in Model)
     {
-        <div class="row text-center border m-0 p-0">
-            @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
-            {
-                @Html.Partial("_EditEvent", sportEvent)
-            }
-        </div>
+        Html.RenderPartial("_EditEvent", sportEvent);
     }
 
-    <div class="row text-center m-0 p-0">
-        @using (Html.BeginForm("Edit", "SportEvent", FormMethod.Post))
-        {
-            @Html.Partial("_AddEvent", new EventViewModel())
-        }
-    </div>
+    @{
+        Html.RenderPartial("_AddEvent", new EventViewModel());
+    }
     <div class="row nevervisible">
         SPACE
     </div>
-    <div class="row m-0 p-0">
+    <div class="row">
         <div class="col-lg-2">
             <button type="button" onclick="makeVisible()">Add New</button>
         </div>
-        <div class="col-lg-10 m-0 p-0"></div>
+        <div class="col-lg-10"></div>
     </div>
 
 
