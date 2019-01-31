@@ -13,19 +13,19 @@
         @Html.TextBoxFor(x => x.EventName, new { @class = "invisible form-control" })
     </div>
     <div class="col-lg-2 border">
-        @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "invisible form-control" })
+        @Html.TextBoxFor(x => x.OddsForFirstTeam, new { @class = "invisible form-control",  @readonly = "readonly" })
     </div>
     <div class="col-lg-1 border">
-        @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "invisible form-control" })
+        @Html.TextBoxFor(x => x.OddsForDraw, new { @class = "invisible form-control",  @readonly = "readonly" })
     </div>
     <div class="col-lg-2 border">
-        @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "invisible form-control" })
+        @Html.TextBoxFor(x => x.OddsForSecondTeam, new { @class = "invisible form-control",  @readonly = "readonly" })
     </div>
     <div class="col-lg-2 border">
         @Html.TextBoxFor(x => x.EventStartDate, new { @class = "invisible form-control" })
     </div>
     <div class="col-lg-1">
-        <button type="submit" class="invisible" formaction="@Url.Action("Edit")">Save</button>
+        <button type="submit" class="invisible" formaction="@Url.Action("EditAll")">Save</button>
     </div>
     <div class="col-lg-1">
         @*<button type="submit" class="invisible" formaction="@Url.Action("Delete")">Delete</button>*@
