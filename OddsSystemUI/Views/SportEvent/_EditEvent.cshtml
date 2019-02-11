@@ -3,7 +3,7 @@
     ViewData["Title"] = "_EditEvent";
 }
 <div class="row text-center">
-    @using (Html.BeginForm("EditAll", "SportEvent", FormMethod.Post))
+    @using (Html.BeginForm("EditAll", "SportEvent", FormMethod.Post, new { @name = Model.Id, @id = Model.Id}))
     {
         <div class="col-lg-1">
             @Html.TextBoxFor(x => x.Id, new { @readonly = "readonly", @class = "form-control" })

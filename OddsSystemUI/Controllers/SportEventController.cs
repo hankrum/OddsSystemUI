@@ -57,7 +57,10 @@ namespace OddsSystemUI.Controllers
             }
             else
             {
-                return Redirect("EditAll");
+                IEnumerable<SportEvent> events = await this.eventsService.All();
+                IEnumerable<EventViewModel> models = events.Select<SportEvent, EventViewModel>(x => new EventViewModel(x));
+
+                return View(models);
             }
 
         }
